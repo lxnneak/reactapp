@@ -1,8 +1,25 @@
 import { Link } from "react-router";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
+import { useState } from "react";
+import type { User } from "~/types/User";
+import { CustomBotton } from "~/components/CustomBotton";
 
 export function Welcome() {
+  const [user, setUser] = useState<User>({
+    username: "Benny",
+    password: "123",
+  });
+  const [score, setScore] = useState<number>(0);
+
+  function updateScore() {
+    setScore((prev) => prev + 1);
+  }
+
+  function updateUser() {
+    setUser((prevUser) => ({ ...prevUser, username: "benni" }));
+  }
+
   return (
     <main className="flex items-center justify-center pt-16 pb-4">
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
@@ -19,6 +36,10 @@ export function Welcome() {
               className="hidden w-full dark:block"
             />
           </div>
+
+          <CustomBotton />
+          <CustomBotton />
+          <CustomBotton />
           <Link to={"/about"}>Navigate to about!</Link>
         </header>
         <div className="max-w-[300px] w-full space-y-6 px-4">
