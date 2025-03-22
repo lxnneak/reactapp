@@ -1,7 +1,7 @@
-import styles from "./CustomBotton.module.css";
+import styles from "./CustomBotton.module.css"
 
 interface CustomBotton {
-  customButtonName: string;
+  customButtonName: string
 }
 
 export function CustomBotton(props: CustomBotton) {
@@ -9,5 +9,5 @@ export function CustomBotton(props: CustomBotton) {
     <div>
       <button className={styles.btn}>{props.customButtonName}</button>
     </div>
-  );
+  )
 }
